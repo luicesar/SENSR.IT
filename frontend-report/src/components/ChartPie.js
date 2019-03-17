@@ -5,7 +5,7 @@ class ChartPie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: props.chartData
+      chartDataPie: props.chartDataPie
     };
   }
 
@@ -13,27 +13,34 @@ class ChartPie extends Component {
     displayTitle: true,
     displayLegend: true,
     legendPosition: "right",
-    location: "Cidade"
+    location: "Enquete"
   };
 
   render() {
-    const { chartData } = this.state;
+    const { chartDataPie } = this.state;
 
     return (
       <div className="chart">
         <Pie
-          data={chartData}
+          type="doughnut"
+          data={chartDataPie}
           options={{
             title: {
               display: this.props.displayTitle,
-              text: "Maiores Cidades em " + this.props.location,
+              text: "Enquetes",
               fontSize: 25
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition
-            }
+            },
+            rotation: 1 * Math.PI,
+            circumference: 1 * Math.PI,
+            cutoutPercentage: 50,
+            responsive: true
           }}
+          width={100}
+          height={30}
         />
       </div>
     );

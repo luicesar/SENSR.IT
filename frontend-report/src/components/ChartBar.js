@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Bar } from "react-chartjs-2";
+import { HorizontalBar } from "react-chartjs-2";
 
 class ChartBar extends Component {
   constructor(props) {
@@ -21,18 +21,19 @@ class ChartBar extends Component {
 
     return (
       <div className="chart">
-        <Bar
+        <HorizontalBar
           data={chartData}
           options={{
             title: {
               display: this.props.displayTitle,
-              text: "Maiores Cidades em " + this.props.location,
+              text: "Maiores Cidades",
               fontSize: 25
             },
             legend: {
-              display: this.props.displayLegend,
+              display: true,
               position: this.props.legendPosition
-            }
+            },
+            responsive: true
           }}
         />
       </div>

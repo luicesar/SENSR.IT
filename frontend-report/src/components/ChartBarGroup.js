@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
-class ChartLine extends Component {
+class ChartBarGroup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartDataLine: props.chartDataLine
+      chartDataGroup: props.chartDataGroup
     };
   }
 
@@ -13,27 +13,26 @@ class ChartLine extends Component {
     displayTitle: true,
     displayLegend: true,
     legendPosition: "right",
-    location: "Cidade"
+    location: "Atendimento"
   };
 
   render() {
-    const { chartDataLine } = this.state;
+    const { chartDataGroup } = this.state;
 
     return (
       <div className="chart">
-        <Line
-          data={chartDataLine}
+        <Bar
+          data={chartDataGroup}
           options={{
             title: {
               display: this.props.displayTitle,
-              text: "Tendências",
+              text: "Atendimentos",
               fontSize: 25
             },
             legend: {
-              display: this.props.displayLegend,
+              display: this.props.displayTitle,
               position: this.props.legendPosition
-            },
-            responsive: true
+            }
           }}
         />
       </div>
@@ -41,4 +40,4 @@ class ChartLine extends Component {
   }
 }
 
-export default ChartLine;
+export default ChartBarGroup;
